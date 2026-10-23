@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pollen Stretch</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header class="brand">
+        <div class="mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div>
+          <h1>Pollen Stretch</h1>
+          <p>Read less. Open what matters.</p>
+        </div>
+      </header>
+
+      <section class="status-card" aria-live="polite">
+        <div class="status-line">
+          <span id="status-dot" class="status-dot"></span>
+          <strong id="status-title">Checking connection…</strong>
+        </div>
+        <p id="status-copy">Your Pollinations key stays inside this browser session.</p>
+        <div id="auth-actions" class="actions"></div>
+      </section>
+
+      <section class="reader-card">
+        <div class="reader-heading">
+          <div>
+            <span class="eyebrow">This page</span>
+            <h2 id="page-title">Stretch mode</h2>
+          </div>
+          <button id="toggle" class="switch" type="button" role="switch" aria-checked="false" disabled>
+            <span></span>
+            <b>Off</b>
+          </button>
+        </div>
+
+        <label for="depth">Expansion depth</label>
+        <select id="depth">
+          <option value="0">Quick context</option>
+          <option value="1">Deeper explanation</option>
+          <option value="2">Expert detail</option>
+        </select>
+
+        <ol class="steps">
+          <li>Turn on stretch mode.</li>
+          <li>Click any underlined sentence.</li>
+          <li>Click <b>«</b> to fold it back.</li>
+        </ol>
+      </section>
+
+      <p class="privacy">
+        Only the sentence you click and its nearby paragraph are sent to Pollinations.
+      </p>
+
+      <footer>
+        <a href="https://pollinations.ai/?ref=pollen-stretch" target="_blank" rel="noreferrer">
+          Made with <span class="pollinations-name">pollinations.ai</span>
+        </a>
+        <span class="shortcut">Alt + Shift + S</span>
+      </footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{
+	"name": "pollen-stretch",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"description": "A browser extension that turns any article into AI-powered stretchtext with Pollinations.",
+	"scripts": {
+		"test": "node --test",
+		"check": "biome check .",
+		"format": "biome check --write ."
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.2.4"
+	}
+}

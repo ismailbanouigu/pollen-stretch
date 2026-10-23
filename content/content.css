@@ -1,0 +1,141 @@
+:root {
+	--pollen-stretch-accent: #e99b13;
+	--pollen-stretch-ink: #5f3d00;
+	--pollen-stretch-wash: rgba(244, 180, 26, 0.14);
+}
+
+.pollen-stretch-trigger {
+	border-radius: 0.18em;
+	outline: none;
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: color-mix(
+		in srgb,
+		var(--pollen-stretch-accent) 72%,
+		currentColor
+	);
+	text-decoration-thickness: 0.1em;
+	text-underline-offset: 0.16em;
+	cursor: zoom-in;
+	transition:
+		color 120ms ease,
+		background-color 120ms ease,
+		text-decoration-color 120ms ease;
+}
+
+.pollen-stretch-trigger:hover,
+.pollen-stretch-trigger:focus-visible {
+	color: color-mix(in srgb, currentColor 70%, var(--pollen-stretch-ink));
+	background: var(--pollen-stretch-wash);
+	text-decoration-style: solid;
+}
+
+.pollen-stretch-trigger[aria-expanded="true"] {
+	cursor: zoom-out;
+	text-decoration-style: solid;
+}
+
+.pollen-stretch-trigger.pollen-stretch-loading {
+	background: linear-gradient(
+		105deg,
+		transparent 20%,
+		rgba(244, 180, 26, 0.28) 42%,
+		transparent 64%
+	);
+	background-size: 240% 100%;
+	animation: pollen-stretch-shimmer 1.25s linear infinite;
+	cursor: progress;
+}
+
+.pollen-stretch-expansion {
+	display: inline;
+	margin-inline-start: 0.22em;
+	padding: 0.08em 0.24em;
+	border-inline-start: 0.14em solid var(--pollen-stretch-accent);
+	border-radius: 0.2em;
+	background: var(--pollen-stretch-wash);
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+	animation: pollen-stretch-open 180ms ease-out both;
+}
+
+.pollen-stretch-expansion[hidden] {
+	display: none;
+}
+
+.pollen-stretch-close {
+	margin-inline-start: 0.25em;
+	padding: 0 0.22em;
+	border: 0;
+	border-radius: 0.25em;
+	color: var(--pollen-stretch-ink);
+	background: transparent;
+	font: inherit;
+	font-weight: 800;
+	line-height: inherit;
+	cursor: pointer;
+}
+
+.pollen-stretch-close:hover,
+.pollen-stretch-close:focus-visible {
+	background: color-mix(in srgb, var(--pollen-stretch-accent) 22%, transparent);
+	outline: 2px solid
+		color-mix(in srgb, var(--pollen-stretch-accent) 45%, transparent);
+}
+
+.pollen-stretch-toast {
+	position: fixed;
+	z-index: 2147483647;
+	right: 20px;
+	bottom: 20px;
+	max-width: min(360px, calc(100vw - 40px));
+	padding: 11px 14px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 12px;
+	color: #fff;
+	background: #2b251c;
+	box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+	font:
+		600 13px / 1.4 ui-sans-serif,
+		system-ui,
+		sans-serif;
+	animation: pollen-stretch-open 160ms ease-out both;
+}
+
+.pollen-stretch-toast[data-kind="error"] {
+	background: #8f2e2e;
+}
+
+@keyframes pollen-stretch-shimmer {
+	to {
+		background-position: -240% 0;
+	}
+}
+
+@keyframes pollen-stretch-open {
+	from {
+		opacity: 0;
+		transform: translateY(-0.16em);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.pollen-stretch-trigger,
+	.pollen-stretch-expansion,
+	.pollen-stretch-toast {
+		animation: none;
+		transition: none;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--pollen-stretch-accent: #f4bd39;
+		--pollen-stretch-ink: #ffe2a1;
+		--pollen-stretch-wash: rgba(244, 189, 57, 0.12);
+	}
+}
